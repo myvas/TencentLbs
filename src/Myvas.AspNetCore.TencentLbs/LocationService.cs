@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -13,8 +15,11 @@ namespace Myvas.AspNetCore.TencentLbs
 
         private readonly ILogger _logger;
         private readonly TencentLbsOptions _options;
-
-
+               
+        public LocationService(IOptions<TencentLbsOptions> optionsAccessor)
+            : this(optionsAccessor, NullLoggerFactory.Instance.CreateLogger<LocationService>())
+        {
+        }
         public LocationService(IOptions<TencentLbsOptions> optionsAccessor, ILogger<LocationService> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -22,17 +27,18 @@ namespace Myvas.AspNetCore.TencentLbs
             _backchannel = _options.Backchannel ?? new HttpClient();
         }
 
-        public async Task<AddressComponent> GetAddress(Location location, bool poi)
+        public async Task<AddressResult> GetAddress(Location location, bool poi)
         {
             var url = $"{TencentLbsDefaults.GeocoderUrl}/?location={location.Latitude},{location.Longitude}&key={_options.Key}";
             if (poi) url += "&get_poi=1";
 
-            var resp = await _options.Backchannel.GetAsync(url);
+            var resp = await _backchannel.GetAsync(url);
             if (resp.IsSuccessStatusCode)
             {
+                Debug.WriteLine(await resp.Content.ReadAsStringAsync());
                 var json = await resp.Content.ReadAsStreamAsync();
                 var result = await JsonSerializer.DeserializeAsync<JsonResponse<AddressResult>>(json);
-                return result.result.address_componnet;
+                return result.result;
             }
 
             return null;
@@ -47,9 +53,10 @@ namespace Myvas.AspNetCore.TencentLbs
                 url += $"&region={region}";
             }
 
-            var resp = await _options.Backchannel.GetAsync(url);
+            var resp = await _backchannel.GetAsync(url);
             if (resp.IsSuccessStatusCode)
             {
+                Debug.WriteLine(await resp.Content.ReadAsStringAsync());
                 var json = await resp.Content.ReadAsStreamAsync();
                 var result = await JsonSerializer.DeserializeAsync<JsonResponse<LocationResult>>(json);
                 return result.result.location;
@@ -57,14 +64,15 @@ namespace Myvas.AspNetCore.TencentLbs
 
             return null;
         }
-        
+
         public async Task<Location> GetIpLocation(string ipv4)
         {
             var url = $"{TencentLbsDefaults.LocationUrl}?ip={ipv4}&key={_options.Key}";
 
-            var resp = await _options.Backchannel.GetAsync(url);
+            var resp = await _backchannel.GetAsync(url);
             if (resp.IsSuccessStatusCode)
             {
+                Debug.WriteLine(await resp.Content.ReadAsStringAsync());
                 var json = await resp.Content.ReadAsStreamAsync();
                 var result = await JsonSerializer.DeserializeAsync<JsonResponse<LocationResult>>(json);
                 return result.result.location;

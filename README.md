@@ -16,7 +16,7 @@ services.AddTencentLbs(options =>
 {
     options.Key = Configuration["TencentLbs:Key"];
 })
-// WebService API
+// WebService API (not implemented yet!)
 .AddWebServiceApi(options =>
 {
     options.SecretKey = Configuration["TencentLbs:SecretKey"];

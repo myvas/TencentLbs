@@ -7,6 +7,6 @@ namespace Myvas.AspNetCore.TencentLbs
     {
         Task<Location> GetIpLocation(string ipv4);
         Task<Location> GetLocation(string address, string region = null);
-        Task<AddressComponent> GetAddress(Location location, bool poi = false);
+        Task<AddressResult> GetAddress(Location location, bool poi = false);
     }
 }
