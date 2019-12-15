@@ -1,4 +1,4 @@
-# TencentLbs and TencentMap [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
+# TencentLbs and TencentMap [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/TencentLbs?label=github)](https://github.com/myvas/TencentLbs)
 * Myvas.AspNetCore.TencentLbs (LBS, Location Based Service) [![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.TencentLbs.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.TencentLbs)
 
   * IP定位服务：通过IP地址，定位所在位置（坐标）
