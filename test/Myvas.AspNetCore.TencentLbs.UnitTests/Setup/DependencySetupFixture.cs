@@ -11,7 +11,11 @@ namespace Myvas.AspNetCore.TencentLbs.UnitTests
         public DependencySetupFixture()
         {
             var services = new ServiceCollection();
-            services.AddTencentLbs(o => o.Key = "NH7BZ-CTYKR-7CAWL-WTIU4-WLRWT-UQFYW");
+            services.AddTencentLbs(o =>
+            {
+                o.Key = "NH7BZ-CTYKR-7CAWL-WTIU4-WLRWT-UQFYW";
+                o.SecretKey = "vf0RDbVbh8pbIXIgYBF52R65d4DVKQk2";
+            });
 
             ServiceProvider = services.BuildServiceProvider();
         }

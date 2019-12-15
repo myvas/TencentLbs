@@ -14,6 +14,11 @@ namespace Myvas.AspNetCore.TencentLbs
         public string Key { get; set; }
 
         /// <summary>
+        /// WebServiceAPI Secret Key
+        /// </summary>
+        public string SecretKey { get; set; }
+
+        /// <summary>
         /// Used to communicate with the remote sms server.
         /// </summary>
         public HttpClient Backchannel { get; set; }

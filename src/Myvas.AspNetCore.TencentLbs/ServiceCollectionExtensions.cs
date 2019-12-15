@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             if (setupAction != null)
             {
-                services.Configure(setupAction);//IOptions<TencentSmsOptions>
+                services.Configure(setupAction);
             }
 
             services.AddSingleton<ITencentLbs, LocationService>();

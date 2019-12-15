@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+ï»¿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -15,13 +15,14 @@ namespace Myvas.AspNetCore.TencentLbs.UnitTests
             _serviceProvider = fixture.ServiceProvider;
         }
 
+
         [Fact]
         public async Task Test1()
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var context = scope.ServiceProvider.GetService<ITencentLbs>();
-                var result = await context.GetLocation("¹ã¶«Ê¡¹ãÖİÊĞÌìºÓÇøÌì¸®Â·1ºÅ");
+                var result = await context.GetLocation("å¹¿ä¸œçœå¹¿å·å¸‚å¤©æ²³åŒºå¤©åºœè·¯1å·");
 
                 Assert.NotNull(result);
                 Assert.Equal(113.362m, result.Longitude);
@@ -38,7 +39,7 @@ namespace Myvas.AspNetCore.TencentLbs.UnitTests
                 var result = await context.GetAddress(new Location(113.362m, 23.1235m));
 
                 Assert.NotNull(result);
-                Assert.Equal("¹ã¶«Ê¡¹ãÖİÊĞÌìºÓÇø»ÆÆÒ´óµÀÖĞ", result.address);
+                Assert.Equal("å¹¿ä¸œçœå¹¿å·å¸‚å¤©æ²³åŒºé»„åŸ”å¤§é“ä¸­", result.address);
             }
         }
 

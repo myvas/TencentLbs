@@ -15,11 +15,7 @@
 services.AddTencentLbs(options =>
 {
     options.Key = Configuration["TencentLbs:Key"];
-})
-// WebService API (not implemented yet!)
-.AddWebServiceApi(options =>
-{
-    options.SecretKey = Configuration["TencentLbs:SecretKey"];
+    options.SecretKey = Configuration["TencentLbs:SecretKey"]; // WebServiceAPI: 若不填写或为空，则不使用“签名校验”
 });
 ```
 

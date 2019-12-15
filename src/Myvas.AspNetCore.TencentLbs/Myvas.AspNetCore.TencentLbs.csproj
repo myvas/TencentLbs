@@ -4,12 +4,12 @@
     <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     <AssemblyName>Myvas.AspNetCore.TencentLbs</AssemblyName>
     <PackageId>Myvas.AspNetCore.TencentLbs</PackageId>
-    <Version>3.1.0.1216</Version>
+    <Version>3.1.0.1220</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>An ASP.NET Core middleware of Tencent LBS</Description>
     <PackageTags>ASPNETCore, Middlewares, BlazorComponents, TencentLbs, TencentMap</PackageTags>
     <PackageProjectUrl>https://github.com/myvas/TencentLbs</PackageProjectUrl>
-    <RootNamespace>Myvas.AspNetCore.TencentSms</RootNamespace>
+    <RootNamespace>Myvas.AspNetCore.TencentLbs</RootNamespace>
     <Authors>Myvas</Authors>
   </PropertyGroup>
 
