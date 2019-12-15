@@ -1,22 +1,13 @@
 # TencentLbs and TencentMap
-* TencentLbs (LBS, Location Based Service)
+* Myvas.AspNetCore.TencentLbs (LBS, Location Based Service) [![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.TencentLbs.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.TencentLbs) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
+
   * IP定位服务：通过IP地址，定位所在位置（坐标）
   * 地址解析服务：通过地址，获取坐标（腾讯地图、高德地图适用）
   * 逆地址解析服务：通过坐标，获取地址描述（行政区划、街道、地标、商圈、路口等）
 
-* TencentMap (Blazor Components)
+* Myvas.AspNetCore.Components.TencentMap (Blazor Components) [![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.Components.TencentMap.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.Components.TencentMap) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
   * 以指定坐标为中心，显示地图
   * 在地图上显示自定义标记
-
-## Demo
-（暂无）
-
-## NuGet
-* Myvas.AspNetCore.TencentLbs
-[![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.TencentLbs.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.TencentLbs) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
-
-* Myvas.AspNetCore.Components.TencentMap
-[![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.Components.TencentMap.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.Components.TencentMap) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
 
 ## Usage1: Myvas.AspNetCore.TencentLbs
 ### ConfigureServices
