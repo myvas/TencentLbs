@@ -6,8 +6,8 @@
     <PackageId>Myvas.AspNetCore.TencentLbs</PackageId>
     <Version>3.1.0.1216</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>ASP.NET Core Middleware of LBS and Map Components from Tencent.</Description>
-    <PackageTags>ASP.NET Core Middlewares, Blazor Components, Tencent LBS, Tencent Map</PackageTags>
+    <Description>An ASP.NET Core middleware of Tencent LBS</Description>
+    <PackageTags>ASPNETCore, Middlewares, BlazorComponents, TencentLbs, TencentMap</PackageTags>
     <PackageProjectUrl>https://github.com/myvas/TencentLbs</PackageProjectUrl>
     <RootNamespace>Myvas.AspNetCore.TencentSms</RootNamespace>
     <Authors>Myvas</Authors>
