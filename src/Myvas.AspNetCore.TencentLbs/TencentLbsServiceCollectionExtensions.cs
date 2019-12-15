@@ -1,15 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
+﻿using Myvas.AspNetCore.TencentLbs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Myvas.AspNetCore.TencentSms;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    public static class TencentSmsServiceCollectionExtensions
+    public static class TencentLbsServiceCollectionExtensions
     {
         /// <summary>
         /// Using Sms Middleware
@@ -18,7 +12,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="setupAction">Middleware configuration options.</param>
         /// <param name="debug">true will log only, that is, NO sms will send to Mobile Terminal.</param>
         /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
-        public static IServiceCollection AddTencentSms(this IServiceCollection services, Action<TencentSmsOptions> setupAction = null)
+        public static IServiceCollection AddTencentLbs(this IServiceCollection services, Action<TencentLbsOptions> setupAction = null)
         {
             if (services == null)
             {
@@ -30,7 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 services.Configure(setupAction);//IOptions<TencentSmsOptions>
             }
 
-            services.AddSingleton<ISmsSender, TencentSmsManager>();
+            services.AddSingleton<ITencentLbs, LocationService>();
 
             return services;
         }

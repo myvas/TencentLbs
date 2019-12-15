@@ -1,46 +1,91 @@
-# TencentSms
-An `ISmsSender` implementation for TencentSms. (aka QcloudSms)
+# TencentLbs and Map Blazor Components
+* LBS(Location Based Service)
+0.IP定位服务：通过IP地址，定位所在位置（坐标）
+1.地址解析服务：通过地址，获取坐标（腾讯地图、高德地图适用）
+2.逆地址解析服务：通过坐标，获取地址描述（行政区划、街道、地标、商圈、路口等）
+
+* Map Blazor Components
+1.以指定坐标为中心，显示地图
+2.在地图上显示自定义标记
 
 ## Demo
-Myvas.AspNetCore.Authentication.Demo 
-[![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.Authentication.Demo?label=github)](https://github.com/myvas/AspNetCore.Authentication.Demo)
+（暂无）
 
 ## NuGet
-Myvas.AspNetCore.TencentSms 
-[![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.TencentSms.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.TencentSms) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentSms?label=github)](https://github.com/myvas/AspNetCore.TencentSms)
+* Myvas.AspNetCore.TencentLbs
+[![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.TencentLbs.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.TencentLbs) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
 
-## ConfigureServices
+* Myvas.AspNetCore.Components.TencentMap
+[![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.Components.TencentMap.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.Components.TencentMap) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
+
+## Usage: Myvas.AspNetCore.TencentLbs
+### ConfigureServices
 ```csharp
-services.AddTencentSms(options =>
+services.AddTencentLbs(options =>
 {
-    options.SdkAppId = Configuration["TencentSms:SdkAppId"];
-    options.AppKey = Configuration["TencentSms:AppKey"];
+    options.Key = Configuration["TencentLbs:Key"];
+})
+// WebService API
+.AddWebServiceApi(options =>
+{
+    options.SecretKey = Configuration["TencentLbs:SecretKey"];
 });
 ```
 
-## Inject & Invoke
+### Inject & Invoke
 ```csharp
-private readonly ISmsSender _smsSender;
+private readonly ITencentLbs _lbs;
 
-public XxxController(ISmsSender smsSender)
+public XxxController(ITencentLbs lbs)
 {
-    _smsSender = smsSender ?? throw new ArgumentNullException(nameof(smsSender);
+    _lbs = lbs ?? throw new ArgumentNullException(nameof(lbs);
 }
 
 public IActionResult Xxx()
 {
     //...
-    var result = await _smsSender.SendSmsAsync(mobile, content);
+    var location = await _lbs.GetCurrentLocation();
+    var location2 = await _lbs.GetLocation("广州市天河区晴旭街2号");
+    var address = await _lbs.GetAddress(location);
 }
 ```
 
-## API Implementation Status
-### Plan:
-- To support the TencentSms API, docs here: https://cloud.tencent.com/document/product/382
+### Inject on Razor
+```csharp
+@inject Myvas.AspNetCore.TencentLbs.ITencentLbs lbs
 
-### Dependencies:
-- https://www.nuget.org/packages/qcloud.qcloudsms_csharp
+<p>经度: @(lbs.GetCurrentLocation().Longitude)</p>
+<p>纬度: @(lbs.GetCurrentLocation().Latitude)</p>
 
-### DONE:
-- 国内发送短信（发送一条短信）
-- 国内群发短信（提交群发短信）
+...
+```
+
+## Myvas.AspNetCore.Components.TencentMap
+
+### ConfigureServices
+```csharp
+services.AddTencentLbs(options =>
+{
+    options.Key = Configuration["TencentLbs:Key"];
+})
+// WebService API
+.AddWebServiceApi(options =>
+{
+    options.SecretKey = Configuration["TencentLbs:SecretKey"];
+});
+```
+
+### Blazor Components
+```csharp
+@inject Myvas.AspNetCore.TencentLbs.ITencentLbs lbs
+@using Myvas.AspNetCore.Components
+
+<TencentMap>
+    <Point Longtitude="@(lbs.GetCurrentLocation().Longitude)" Latitude="@(lbs.GetCurrentLocation().Latitude)">
+        <p>我的位置</p>
+    </Point>
+</TencentMap>
+```
+
+### References:
+- https://lbs.qq.com

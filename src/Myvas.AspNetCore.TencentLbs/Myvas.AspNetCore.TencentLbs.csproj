@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <AssemblyName>Myvas.AspNetCore.TencentSms</AssemblyName>
-    <PackageId>Myvas.AspNetCore.TencentSms</PackageId>
+    <AssemblyName>Myvas.AspNetCore.TencentLbs</AssemblyName>
+    <PackageId>Myvas.AspNetCore.TencentLbs</PackageId>
     <Version>3.1.0.1</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>An AspNetCore ISmsSender implementation via TencentSms (aka QcloudSms). (Windows/Linux works!)</Description>
+    <Description>ASP.NET Core Middleware of LBS and Map Components from Tencent.</Description>
+    <PackageTags>ASP.NET Core Middlewares, Blazor Components, Tencent LBS, Tencent Map</PackageTags>
     <PackageProjectUrl>https://github.com/myvas/TencentSms</PackageProjectUrl>
     <RootNamespace>Myvas.AspNetCore.TencentSms</RootNamespace>
     <Authors>Myvas</Authors>
@@ -17,6 +18,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.0" />
     <PackageReference Include="qcloud.qcloudsms_csharp" Version="0.1.6" />
+    <PackageReference Include="System.Text.Json" Version="4.7.0" />
   </ItemGroup>
 
 </Project>
