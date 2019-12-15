@@ -1,12 +1,12 @@
-# TencentLbs and Map Blazor Components
-* LBS(Location Based Service)
-** IP定位服务：通过IP地址，定位所在位置（坐标）
-** 地址解析服务：通过地址，获取坐标（腾讯地图、高德地图适用）
-** 逆地址解析服务：通过坐标，获取地址描述（行政区划、街道、地标、商圈、路口等）
+# TencentLbs and TencentMap
+* TencentLbs (LBS, Location Based Service)
+  * IP定位服务：通过IP地址，定位所在位置（坐标）
+  * 地址解析服务：通过地址，获取坐标（腾讯地图、高德地图适用）
+  * 逆地址解析服务：通过坐标，获取地址描述（行政区划、街道、地标、商圈、路口等）
 
-* Map Blazor Components
-** 以指定坐标为中心，显示地图
-** 在地图上显示自定义标记
+* TencentMap (Blazor Components)
+  * 以指定坐标为中心，显示地图
+  * 在地图上显示自定义标记
 
 ## Demo
 （暂无）
