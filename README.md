@@ -1,15 +1,15 @@
 # TencentLbs and Map Blazor Components
 * LBS(Location Based Service)
-0.IP¶¨Î»·şÎñ£ºÍ¨¹ıIPµØÖ·£¬¶¨Î»ËùÔÚÎ»ÖÃ£¨×ø±ê£©
-1.µØÖ·½âÎö·şÎñ£ºÍ¨¹ıµØÖ·£¬»ñÈ¡×ø±ê£¨ÌÚÑ¶µØÍ¼¡¢¸ßµÂµØÍ¼ÊÊÓÃ£©
-2.ÄæµØÖ·½âÎö·şÎñ£ºÍ¨¹ı×ø±ê£¬»ñÈ¡µØÖ·ÃèÊö£¨ĞĞÕşÇø»®¡¢½ÖµÀ¡¢µØ±ê¡¢ÉÌÈ¦¡¢Â·¿ÚµÈ£©
+** IPå®šä½æœåŠ¡ï¼šé€šè¿‡IPåœ°å€ï¼Œå®šä½æ‰€åœ¨ä½ç½®ï¼ˆåæ ‡ï¼‰
+** åœ°å€è§£ææœåŠ¡ï¼šé€šè¿‡åœ°å€ï¼Œè·å–åæ ‡ï¼ˆè…¾è®¯åœ°å›¾ã€é«˜å¾·åœ°å›¾é€‚ç”¨ï¼‰
+** é€†åœ°å€è§£ææœåŠ¡ï¼šé€šè¿‡åæ ‡ï¼Œè·å–åœ°å€æè¿°ï¼ˆè¡Œæ”¿åŒºåˆ’ã€è¡—é“ã€åœ°æ ‡ã€å•†åœˆã€è·¯å£ç­‰ï¼‰
 
 * Map Blazor Components
-1.ÒÔÖ¸¶¨×ø±êÎªÖĞĞÄ£¬ÏÔÊ¾µØÍ¼
-2.ÔÚµØÍ¼ÉÏÏÔÊ¾×Ô¶¨Òå±ê¼Ç
+** ä»¥æŒ‡å®šåæ ‡ä¸ºä¸­å¿ƒï¼Œæ˜¾ç¤ºåœ°å›¾
+** åœ¨åœ°å›¾ä¸Šæ˜¾ç¤ºè‡ªå®šä¹‰æ ‡è®°
 
 ## Demo
-£¨ÔİÎŞ£©
+ï¼ˆæš‚æ— ï¼‰
 
 ## NuGet
 * Myvas.AspNetCore.TencentLbs
@@ -45,7 +45,7 @@ public IActionResult Xxx()
 {
     //...
     var location = await _lbs.GetCurrentLocation();
-    var location2 = await _lbs.GetLocation("¹ãÖİÊĞÌìºÓÇøÇçĞñ½Ö2ºÅ");
+    var location2 = await _lbs.GetLocation("å¹¿å·å¸‚å¤©æ²³åŒºæ™´æ—­è¡—2å·");
     var address = await _lbs.GetAddress(location);
 }
 ```
@@ -54,8 +54,8 @@ public IActionResult Xxx()
 ```csharp
 @inject Myvas.AspNetCore.TencentLbs.ITencentLbs lbs
 
-<p>¾­¶È: @(lbs.GetCurrentLocation().Longitude)</p>
-<p>Î³¶È: @(lbs.GetCurrentLocation().Latitude)</p>
+<p>ç»åº¦: @(lbs.GetCurrentLocation().Longitude)</p>
+<p>çº¬åº¦: @(lbs.GetCurrentLocation().Latitude)</p>
 
 ...
 ```
@@ -82,7 +82,7 @@ services.AddTencentLbs(options =>
 
 <TencentMap>
     <Point Longtitude="@(lbs.GetCurrentLocation().Longitude)" Latitude="@(lbs.GetCurrentLocation().Latitude)">
-        <p>ÎÒµÄÎ»ÖÃ</p>
+        <p>æˆ‘çš„ä½ç½®</p>
     </Point>
 </TencentMap>
 ```
