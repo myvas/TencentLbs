@@ -18,7 +18,7 @@
 * Myvas.AspNetCore.Components.TencentMap
 [![NuGet](https://img.shields.io/nuget/v/Myvas.AspNetCore.Components.TencentMap.svg)](https://www.nuget.org/packages/Myvas.AspNetCore.Components.TencentMap) [![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/myvas/AspNetCore.TencentLbs?label=github)](https://github.com/myvas/AspNetCore.TencentLbs)
 
-## Usage: Myvas.AspNetCore.TencentLbs
+## Usage1: Myvas.AspNetCore.TencentLbs
 ### ConfigureServices
 ```csharp
 services.AddTencentLbs(options =>
@@ -60,7 +60,7 @@ public IActionResult Xxx()
 ...
 ```
 
-## Myvas.AspNetCore.Components.TencentMap
+## Usage2: Myvas.AspNetCore.Components.TencentMap
 
 ### ConfigureServices
 ```csharp
