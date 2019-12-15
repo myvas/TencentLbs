@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;netstandard2.0</TargetFrameworks>
     <AssemblyName>Myvas.AspNetCore.TencentLbs</AssemblyName>
     <PackageId>Myvas.AspNetCore.TencentLbs</PackageId>
-    <Version>3.1.0.1</Version>
+    <Version>3.1.0.2</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>ASP.NET Core Middleware of LBS and Map Components from Tencent.</Description>
     <PackageTags>ASP.NET Core Middlewares, Blazor Components, Tencent LBS, Tencent Map</PackageTags>
@@ -17,7 +17,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.0" />
-    <PackageReference Include="qcloud.qcloudsms_csharp" Version="0.1.6" />
     <PackageReference Include="System.Text.Json" Version="4.7.0" />
   </ItemGroup>
 
